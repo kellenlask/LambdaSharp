@@ -9,6 +9,9 @@ namespace Memoize
         /// <summary>
         ///     Memoizes the given Pure function so that it's not run multiple times per input; rather it looks up 
         ///     previously-encountered inputs in an internal table and returns them from the table if they exist there.
+        /// <code>
+        /// var calcFactorialMemoized = Memoize(calcFactorial); // Caches calculations so they don't have to be repeated
+        /// </code>
         /// </summary>
         /// <param name="mappingFunc">The function that needs to be memoized</param>
         /// <typeparam name="TInput">The singular input type the memoized function accepts</typeparam>
