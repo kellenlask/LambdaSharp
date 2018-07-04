@@ -31,7 +31,7 @@ var getThanks = new Match<User, string>()
     .When(user => user.Contributions < 1000, user => $"Thanks, Bronze Tier User {user.Name}")
     .When(user => user.Contributions >= 1000 && user.Contributions < 10000, "Thanks Mr. Silver!")
     .When(user => user.Contributions >= 10000, user => $"Thanks Mrs. Gold! We love you {user.FirstName}")
-    .Otherwise(user => $"We thank you for your contribution, and hope you suck less in the future, {user.FirstName}");
+    .Otherwise(user => $"We thank you for your contribution, {user.FirstName}");
                           
 var thanks = users.ToDictionary(user => user, user => getThanks.For(user));
                                 
