@@ -96,8 +96,8 @@ This makes it much easier.
 We have two collections: 1-5, A-F, and we want to make every unique 
 combination. That is a Cartesian Product.
 ```
-        A     B     C     D     E     F 
-    __________________________
+     A    B    C    D    E    F 
+  ______________________________
 1 |  1A   1B   1C   1D   1E   1F
 2 |  2A   2B   2C   2D   2E   2F
 3 |  3A   3B   3C   3D   3E   3F
