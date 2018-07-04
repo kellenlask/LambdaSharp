@@ -44,7 +44,12 @@ A C# pipe operator! Now you can create lazy/eager sequences of function calls wi
 ### For Example: 
 ```
 // BAD
-var availableUglyDoctors = GetDoctors(GetHospital(GetPatientLocation(GetPatientAddress(GetPatient(GetPatientProvider(), patientId)))));
+var availableUglyDoctors = GetDoctors(
+    GetHospital(
+        GetPatientLocation(
+            GetPatientAddress(
+                GetPatient(
+                    GetPatientProvider(), patientId)))));
 
 // GOOD
 var availablePrettyDoctors = new EagerPipe(getPatientProvider())
@@ -72,7 +77,7 @@ you to call it on any member whose membership in a set interests you.
 
 ### For Example: 
 ```
-if(user.ActiveUserType.In(UserType.Admin, UserType.Root, UserType.Manager) {
+if(user.ActiveUserType.In(UserType.Admin, UserType.Root, UserType.Manager)) {
      fancyUsers.Add(user);
 }
 ```
