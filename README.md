@@ -11,6 +11,7 @@ Haskell...
 * Memoize - Wraps a function call, and caches input to output mappings
 * Combinatorics - containing various combinatorial functions (just 
 Cartesian Product at the moment though) 
+* Optional HTTP Methods
 
 
 The below examples are a little contrived, but from them you should 
@@ -125,4 +126,25 @@ foreach(user in users) {
 
 // GOOD
 userEulaCombos = users.CartesianProduct(thirdPartyEulasToAgreeTo).ToList();
+```
+
+## Optional HTTP Methods
+Methods that run HTTP verbs against a given endpoint with optional auth headers, for the primary purpose of 
+executing REST requests. These functions return Option types, which means they don't explode in your face; 
+but rather tell you at the end if there was a success or failure. These methods, being mostly geared 
+towards REST requests, try to do a JSON deserialize on the HTTP result. 
+
+### For Example: 
+```
+var result = await OptionalRest.GetAsync<UserProfile>(
+    "https://myServer/Users/Profiles/1234",
+    TimeSpan.FromMinutes(1),
+    new AuthenticationHeaderValue("Bearer", oAuthToken) 
+);
+
+if(result.HasValue) {
+    renderUserProfile(result.Value);
+} else {
+    result.MatchNone(System.Diagnostics.Debug.WriteLine);
+}
 ```
