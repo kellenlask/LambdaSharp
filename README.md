@@ -134,6 +134,8 @@ executing REST requests. These functions return Option types, which means they d
 but rather tell you at the end if there was a success or failure. These methods, being mostly geared 
 towards REST requests, try to do a JSON deserialize on the HTTP result. 
 
+Uses: https://github.com/nlkl/Optional
+
 ### For Example: 
 ```
 var result = await OptionalRest.GetAsync<UserProfile>(
